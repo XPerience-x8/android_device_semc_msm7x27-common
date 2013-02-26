@@ -257,8 +257,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set usb type
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mass_storage,adb \
-    persist.service.adb.enable=1
+    persist.sys.usb.config=mtp
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
