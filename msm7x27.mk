@@ -4,6 +4,11 @@ $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 # Extra Ringtones
 include frameworks/base/data/sounds/AudioPackageNewWave.mk
 
+# Minumum kernel version requirement
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min.kernel.version=2.6.32.60-nAa \
+    ro.min.kernel.revision=05
+
 # MiniCM10 themes
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/MiniCM10.apk:system/app/MiniCM10.apk \
@@ -257,7 +262,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set usb type
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
+    persist.sys.usb.config=mtp,adb \
+    persist.service.adb.enable=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
@@ -315,7 +321,6 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/10dhcpcd:system/etc/init.d/10dhcpcd \
     device/semc/msm7x27-common/prebuilt/10apps2sd:system/etc/init.d/10apps2sd \
     device/semc/msm7x27-common/prebuilt/05mountext:system/etc/init.d/05mountext \
-    device/semc/msm7x27-common/prebuilt/06minicm:system/etc/init.d/06minicm \
     device/semc/msm7x27-common/prebuilt/zipalign:system/xbin/zipalign
 
 # Adreno 200 files
