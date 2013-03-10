@@ -53,8 +53,8 @@ COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 
 ## Usb
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun0/file"
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 ## Custom CFLAGS
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DTARGET_MSM7x27
