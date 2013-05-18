@@ -345,3 +345,8 @@ PRODUCT_COPY_FILES += \
 # Extra Cyanogen vendor files
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+
+# OMX hack until sources are sorted out
+PRODUCT_COPY_FILES += \
+    device/semc/msm7x27-common/prebuilt/libmm-omxcore.so:system/lib/libmm-omxcore.so \
+    device/semc/msm7x27-common/prebuilt/libOmxCore.so:system/lib/libOmxCore.so
