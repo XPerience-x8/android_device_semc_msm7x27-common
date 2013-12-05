@@ -1,3 +1,6 @@
+## XPerience common for Shakira 
+## try to port kitkat into MSM armv6 device
+## Original developer klozz jesús Aka TeamMEX in XDA-Developers
 TARGET_SPECIFIC_HEADER_PATH := device/semc/msm7x27-common/include
 
 ## Camera
@@ -12,8 +15,10 @@ BOARD_USES_LEGACY_CAMERA := true
 ## ARMv6-compatible processor rev 5 (v6l)
 TARGET_BOARD_PLATFORM := msm7x27
 TARGET_ARCH_VARIANT := armv6-vfp
-TARGET_CPU_ABI := armeabi-v6l
+TARGET_CPU_ABI := armeabi-v6
 TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH := arm
+TARGET_CPU_VARIANT := generic
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 
@@ -87,6 +92,7 @@ WITH_JIT := true
 ENABLE_JSC_JIT:= true
 ARCH_ARM_HAVE_VFP := true
 
+
 ## browser/yt fix
 JS_ENGINE := v8
 HTTP := chrome
@@ -150,3 +156,4 @@ PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=$(TOP)/device/semc/msm7x27-comm
 ## Misc
 #BOARD_USE_LEGACY_TOUCHSCREEN := true
 
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
