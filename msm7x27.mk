@@ -131,4 +131,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.hotspot.ti=1 \
     BUILD_UTC_DATE=0
 
-
