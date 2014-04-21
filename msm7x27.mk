@@ -24,6 +24,15 @@ PRODUCT_PACKAGES += \
     libQcomUI \
     liboverlay
 
+# Wifi
+PRODUCT_PACKAGES += \
+    wpa_supplicant.conf \
+    hostapd_cli \
+    hostapd \
+    calibrator \
+    libnl \
+    iw 
+
 # Omx
 PRODUCT_PACKAGES += \
     libmm-omxcore \
@@ -48,7 +57,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FileManager \
     screencap \
-    hostap \
     rzscontrol \
     CMUpdateNotify \
     com.android.future.usb.accessory
@@ -56,12 +64,11 @@ PRODUCT_PACKAGES += \
 # FM Radio
 PRODUCT_PACKAGES += \
     Fmapplication \
-    fmapp \
-    libfm_stack \
     fmreceiverif \
     com.ti.fm.fmreceiverif.xml \
     FmRxService \
-    libfmrx 
+    libfmrx \
+    libfm_stack 
 
 # for bugmailer
 PRODUCT_PACKAGES += send_bug
@@ -115,7 +122,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsupa.category=6 \
     ro.ril.disable.power.collapse=1 \
     ro.telephony.ril_class=SemcRIL \
-    wifi.interface=tiwlan0
+    wifi.interface=wlan0 \
+    wifi.softap.interface=wlan0 \
+    wifi.softapconcurrent.interface=wlan0 
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
@@ -261,21 +270,18 @@ PRODUCT_COPY_FILES += \
 
 ## Wifi and hotspot
 PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/tiap_loader.sh:system/bin/tiap_loader.sh \
-    device/semc/msm7x27-common/prebuilt/10dnsconf:system/etc/init.d/10dnsconf \
-    device/semc/msm7x27-common/prebuilt/10hostapconf:system/etc/init.d/10hostapconf \
-    device/semc/msm7x27-common/prebuilt/hostapd.conf:system/etc/wifi/softap/hostapd.conf \
-    device/semc/msm7x27-common/prebuilt/dnsmasq.conf:system/etc/wifi/dnsmasq.conf \
-    device/semc/msm7x27-common/prebuilt/tiwlan_firmware.bin:system/etc/wifi/tiwlan_firmware.bin \
-    device/semc/msm7x27-common/prebuilt/tiwlan_firmware_ap.bin:system/etc/wifi/softap/tiwlan_firmware_ap.bin 
+    device/semc/msm7x27-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
+    device/semc/msm7x27-common/prebuilt/wifiload:system/bin/wifiload \
+    device/semc/msm7x27-common/prebuilt/tiwlan.ini:system/etc/tiwlan.ini \
+    device/semc/msm7x27-common/prebuilt/wl1271-fw-multirole-roc.bin:system/etc/firmware/wl1271-fw-multirole-roc.bin
 
 # A2SD and extra init files
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/a2sd:system/bin/a2sd \
     device/semc/msm7x27-common/prebuilt/00banner:system/etc/init.d/00banner \
+    device/semc/msm7x27-common/prebuilt/10dhcpcd:system/etc/init.d/10dhcpcd \
     device/semc/msm7x27-common/prebuilt/10apps2sd:system/etc/init.d/10apps2sd \
     device/semc/msm7x27-common/prebuilt/05mountext:system/etc/init.d/05mountext \
-    device/semc/msm7x27-common/prebuilt/04modules:system/etc/init.d/04modules \
     device/semc/msm7x27-common/prebuilt/06minicm:system/etc/init.d/06minicm \
     device/semc/msm7x27-common/prebuilt/zipalign:system/xbin/zipalign
 
@@ -305,3 +311,8 @@ PRODUCT_COPY_FILES += \
 # New Bluetooth firmware
 PRODUCT_COPY_FILES += \
 device/semc/msm7x27-common/prebuilt/TIInit_7.2.31.bts:system/etc/firmware/TIInit_7.2.31.bts 
+
+# Hciattach
+PRODUCT_COPY_FILES += \
+    device/semc/msm7x27-common/prebuilt/hciattach:system/bin/hciattach
+
