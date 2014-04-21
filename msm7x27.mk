@@ -64,6 +64,7 @@ PRODUCT_PACKAGES += \
 # FM Radio
 PRODUCT_PACKAGES += \
     Fmapplication \
+    fmapp \
     fmreceiverif \
     com.ti.fm.fmreceiverif.xml \
     FmRxService \
