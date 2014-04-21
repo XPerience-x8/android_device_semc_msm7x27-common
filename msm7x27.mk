@@ -4,14 +4,6 @@ $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 # Extra Ringtones
 include frameworks/base/data/sounds/AudioPackageNewWave.mk
 
-# MiniCM9 theme
-PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/MiniCM9.apk:system/app/MiniCM9.apk
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.themeId=MiniCM9 \
-    persist.sys.themePackageName=com.darkdog.theme.minicm9
-
 # Gps / Audio
 PRODUCT_PACKAGES += \
     gps.delta \
@@ -63,13 +55,13 @@ PRODUCT_PACKAGES += \
 
 # FM Radio
 PRODUCT_PACKAGES += \
-    hciattach \
-    com.ti.fm.fmreceiverif.xml \
-    fmreceiverif \
     Fmapplication \
-    libfmrx \
+    fmapp \
     libfm_stack \
-    FmRxService
+    fmreceiverif \
+    com.ti.fm.fmreceiverif.xml \
+    FmRxService \
+    libfmrx 
 
 # for bugmailer
 PRODUCT_PACKAGES += send_bug
@@ -80,11 +72,6 @@ PRODUCT_COPY_FILES += \
 # for compcache
 PRODUCT_COPY_FILES += \
         device/semc/msm7x27-common/prebuilt/rzscontrol:system/xbin/rzscontrol
-
-# Voice search workaround
-PRODUCT_COPY_FILES += \
-        device/semc/msm7x27-common/prebuilt/libvoicesearch.so:system/lib/libvoicesearch.so \
-        device/semc/msm7x27-common/prebuilt/VoiceSearch.apk:system/app/VoiceSearch.apk
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -228,8 +215,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set usb type
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mass_storage,adb \
-    persist.service.adb.enable=1
+    persist.sys.usb.config=mtp \
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
@@ -258,7 +245,6 @@ PRODUCT_LOCALES += en
 # Extra prebuilt binaries
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/com.sonyericsson.suquashi.jar:system/framework/com.sonyericsson.suquashi.jar \
-    device/semc/msm7x27-common/prebuilt/Radio.apk:system/app/Radio.apk \
     device/semc/msm7x27-common/prebuilt/SystemConnector.apk:system/app/SystemConnector.apk \
     device/semc/msm7x27-common/prebuilt/SemcSmfmf.jar:system/framework/SemcSmfmf.jar \
     device/semc/msm7x27-common/prebuilt/vold.fstab:system/etc/vold.fstab \
@@ -312,11 +298,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/AntHalService.apk:system/app/AntHalService.apk
 
-# Hciattach
-PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/hciattach:system/bin/hciattach
-
 # Extra Cyanogen vendor files
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
+# New Bluetooth firmware
+PRODUCT_COPY_FILES += \
+device/semc/msm7x27-common/prebuilt/TIInit_7.2.31.bts:system/etc/firmware/TIInit_7.2.31.bts 
