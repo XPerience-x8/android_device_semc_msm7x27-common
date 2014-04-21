@@ -110,6 +110,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.dec.jpeg.memcap=10000000
 
+#Theme XPerience (Jellybeans from achep permissions granted)
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.sys.themeId=Jelly_Bean \
+persist.sys.themePackageName=com.achep.theme.JellyBean
+
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libril-qc-1.so \
     rild.libargs=-d/dev/smd0 \
@@ -238,11 +243,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pm.sleep_mode=1 \
     persist.pmem.camera=4000000
 
-# Enable ti hotspot
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.hotspot.ti=1 \
-    wifi.ap.interface = tiap0
-
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.ringtone=CyanTone.ogg \
@@ -250,6 +250,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.alarm_alert=CyanAlarm.ogg
 
 PRODUCT_LOCALES += en
+
+## Theme and xpestuf
+PRODUCT_COPY_FILES += \
+    device/semc/msm7x27-common/prebuilt/JellyBean-ACHEP.apk:system/app/JellyBean.apk \
+    device/semc/msm7x27-common/prebuilt/Xperience.apk:system/app/XPerience.apk
 
 # Extra prebuilt binaries
 PRODUCT_COPY_FILES += \
