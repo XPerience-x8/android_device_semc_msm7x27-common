@@ -316,7 +316,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 device/semc/msm7x27-common/prebuilt/TIInit_7.2.31.bts:system/etc/firmware/TIInit_7.2.31.bts 
 
-# Hciattach
-PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/hciattach:system/bin/hciattach
-
