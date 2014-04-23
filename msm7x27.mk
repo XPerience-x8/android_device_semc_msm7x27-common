@@ -137,7 +137,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # but none are in range.
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.supplicant_scan_interval=45   
+    wifi.supplicant_scan_interval=15 
 
 # Configure agps cell location.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -230,7 +230,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set usb type
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp \
+	persist.sys.usb.config=mtp,adb \
+	persist.service.adb.enable=1
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -249,6 +250,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.ringtone=CyanTone.ogg \
     ro.config.notification_sound=CyanMessage.ogg \
     ro.config.alarm_alert=CyanAlarm.ogg
+
+#Some XPERIENCE Tweaking
+PRODUCT_PROPERTY_OVERRIDES += \
+ ro.mot.eri.losalert.delay=1000 \
+    dalvik.vm.startheapsize=4M \
+    ro.config.hw_power_saving=true  \
+    usb_wakeup=enable \
+    ro.ril.sensor.sleep.control=1 \
+    power_supply.wakeup=enable \
+    ro.config.hw_power_saving=1 \
+    persist.sys.shutdown.mode=hibernate \
+    persist.radio.add_power_save=1  
+
+
 
 PRODUCT_LOCALES += en
 
